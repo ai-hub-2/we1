@@ -1,5 +1,0 @@
-[env.production]
-name = "we-dev"
-
-[env.production.vars]
-NEXT_PUBLIC_APP_NAME = "we-dev"

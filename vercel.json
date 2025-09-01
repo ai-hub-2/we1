@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd apps/we-dev-next && pnpm install && pnpm build",
+  "outputDirectory": "apps/we-dev-next/.next",
+  "framework": "nextjs",
+  "installCommand": "pnpm install",
+  "functions": {
+    "apps/we-dev-next/.next/server/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
