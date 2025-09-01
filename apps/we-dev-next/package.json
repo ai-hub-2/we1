@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "next lint",
     "vercel-build": "next build",
-    "netlify-build": "next build"
+    "netlify-build": "next build",
+    "build:clean": "rm -rf .next && next build",
+    "build:production": "NODE_ENV=production next build",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.0.11",
