@@ -1,120 +1,213 @@
-import Link from 'next/link'
-
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div style={{ 
+      minHeight: '100vh', 
+      backgroundColor: '#f8fafc',
+      fontFamily: 'Arial, sans-serif',
+      padding: '20px'
+    }}>
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">We Dev</h1>
-            </div>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-gray-900">
-                Home
-              </Link>
-              <Link href="/docs" className="text-gray-700 hover:text-gray-900">
-                Documentation
-              </Link>
-              <Link href="/api" className="text-gray-700 hover:text-gray-900">
-                API
-              </Link>
-            </nav>
-          </div>
-        </div>
+      <header style={{
+        backgroundColor: 'white',
+        padding: '20px',
+        borderRadius: '8px',
+        marginBottom: '20px',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+      }}>
+        <h1 style={{ 
+          fontSize: '2rem', 
+          fontWeight: 'bold', 
+          color: '#1e293b',
+          margin: 0
+        }}>
+          We Dev
+        </h1>
+        <p style={{ 
+          color: '#64748b', 
+          margin: '10px 0 0 0'
+        }}>
+          AI Development Platform
+        </p>
       </header>
 
-      {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
-            Welcome to{' '}
-            <span className="text-indigo-600">We Dev</span>
-          </h1>
-          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+      {/* Main Content */}
+      <main style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        {/* Hero Section */}
+        <section style={{
+          textAlign: 'center',
+          padding: '60px 20px',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          marginBottom: '20px',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <h2 style={{
+            fontSize: '3rem',
+            fontWeight: 'bold',
+            color: '#1e293b',
+            marginBottom: '20px'
+          }}>
+            Welcome to We Dev
+          </h2>
+          <p style={{
+            fontSize: '1.2rem',
+            color: '#64748b',
+            maxWidth: '600px',
+            margin: '0 auto 30px auto',
+            lineHeight: '1.6'
+          }}>
             Advanced AI-powered development platform for building the future of software.
           </p>
-          <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-            <div className="rounded-md shadow">
-              <Link
-                href="/docs"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-              >
-                Get Started
-              </Link>
-            </div>
-            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-              <Link
-                href="/api"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
-              >
-                API Reference
-              </Link>
-            </div>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button style={{
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              padding: '12px 24px',
+              border: 'none',
+              borderRadius: '6px',
+              fontSize: '1rem',
+              cursor: 'pointer',
+              fontWeight: '500'
+            }}>
+              Get Started
+            </button>
+            <button style={{
+              backgroundColor: 'white',
+              color: '#3b82f6',
+              padding: '12px 24px',
+              border: '2px solid #3b82f6',
+              borderRadius: '6px',
+              fontSize: '1rem',
+              cursor: 'pointer',
+              fontWeight: '500'
+            }}>
+              Learn More
+            </button>
           </div>
-        </div>
+        </section>
 
         {/* Features Section */}
-        <div className="mt-20">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <h3 className="text-lg font-medium text-gray-900">AI-Powered</h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  Leverage advanced AI models for intelligent development workflows.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <h3 className="text-lg font-medium text-gray-900">Fast & Reliable</h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  Built with modern technologies for optimal performance and reliability.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <h3 className="text-lg font-medium text-gray-900">Developer Friendly</h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  Comprehensive documentation and easy-to-use APIs for developers.
-                </p>
-              </div>
-            </div>
+        <section style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '20px',
+          marginBottom: '20px'
+        }}>
+          <div style={{
+            backgroundColor: 'white',
+            padding: '30px',
+            borderRadius: '8px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+          }}>
+            <h3 style={{
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              color: '#1e293b',
+              marginBottom: '15px'
+            }}>
+              AI-Powered
+            </h3>
+            <p style={{
+              color: '#64748b',
+              lineHeight: '1.6'
+            }}>
+              Leverage advanced AI models for intelligent development workflows.
+            </p>
           </div>
-        </div>
+
+          <div style={{
+            backgroundColor: 'white',
+            padding: '30px',
+            borderRadius: '8px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+          }}>
+            <h3 style={{
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              color: '#1e293b',
+              marginBottom: '15px'
+            }}>
+              Fast & Reliable
+            </h3>
+            <p style={{
+              color: '#64748b',
+              lineHeight: '1.6'
+            }}>
+              Built with modern technologies for optimal performance and reliability.
+            </p>
+          </div>
+
+          <div style={{
+            backgroundColor: 'white',
+            padding: '30px',
+            borderRadius: '8px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+          }}>
+            <h3 style={{
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              color: '#1e293b',
+              marginBottom: '15px'
+            }}>
+              Developer Friendly
+            </h3>
+            <p style={{
+              color: '#64748b',
+              lineHeight: '1.6'
+            }}>
+              Comprehensive documentation and easy-to-use APIs for developers.
+            </p>
+          </div>
+        </section>
 
         {/* Status Section */}
-        <div className="mt-20 bg-white shadow rounded-lg">
-          <div className="px-4 py-5 sm:p-6">
-            <h3 className="text-lg font-medium text-gray-900">System Status</h3>
-            <div className="mt-4">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="h-2 w-2 bg-green-400 rounded-full"></div>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-900">All systems operational</p>
-                  <p className="text-sm text-gray-500">Last updated: {new Date().toLocaleString()}</p>
-                </div>
-              </div>
-            </div>
+        <section style={{
+          backgroundColor: 'white',
+          padding: '30px',
+          borderRadius: '8px',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <h3 style={{
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            color: '#1e293b',
+            marginBottom: '20px'
+          }}>
+            System Status
+          </h3>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px'
+          }}>
+            <div style={{
+              width: '12px',
+              height: '12px',
+              backgroundColor: '#10b981',
+              borderRadius: '50%'
+            }}></div>
+            <span style={{ color: '#1e293b', fontWeight: '500' }}>
+              All systems operational
+            </span>
           </div>
-        </div>
+          <p style={{
+            color: '#64748b',
+            fontSize: '0.9rem',
+            marginTop: '5px'
+          }}>
+            Last updated: {new Date().toLocaleString()}
+          </p>
+        </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-white">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-base text-gray-400">
-              &copy; 2024 We Dev. All rights reserved.
-            </p>
-          </div>
-        </div>
+      <footer style={{
+        textAlign: 'center',
+        padding: '40px 20px',
+        color: '#64748b',
+        marginTop: '40px'
+      }}>
+        <p>&copy; 2024 We Dev. All rights reserved.</p>
       </footer>
     </div>
   )

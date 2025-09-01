@@ -1,16 +1,9 @@
-import { createMDX } from "fumadocs-mdx/next";
-import nextIntlPlugin from 'next-intl/plugin';
-
-const withMDX = createMDX();
-
-const withNextIntl = nextIntlPlugin('./i18n.ts');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Cloudflare Pages compatibility
+  // Basic configuration for deployment
   trailingSlash: false,
-  output: 'standalone',
   
+  // Headers for CORS
   async headers() {
     return [
       {
@@ -33,6 +26,8 @@ const nextConfig = {
       },
     ];
   },
+  
+  // Basic rewrites
   async rewrites() {
     return [
       {
@@ -41,7 +36,14 @@ const nextConfig = {
       },
     ];
   },
+  
+  // Enable React strict mode
   reactStrictMode: true,
+  
+  // Disable image optimization for static export
+  images: {
+    unoptimized: true,
+  },
 };
 
-export default withNextIntl(withMDX(nextConfig));
+export default nextConfig;
