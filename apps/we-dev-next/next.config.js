@@ -10,6 +10,10 @@ const nextConfig = {
   // Cloudflare Pages compatibility
   trailingSlash: false,
   output: 'standalone',
+  experimental: {
+    // Disable turbopack for compatibility
+    turbo: false
+  },
   
   async headers() {
     return [
