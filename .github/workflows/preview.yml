@@ -1,0 +1,43 @@
+name: Preview Deployment
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.15.4
+          
+      - name: Install dependencies
+        run: |
+          cd apps/we-dev-next
+          pnpm install
+          
+      - name: Build Next.js app
+        run: |
+          cd apps/we-dev-next
+          pnpm build
+          
+      - name: Deploy Preview to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: we-dev
+          directory: apps/we-dev-next/.next
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          environment: preview
