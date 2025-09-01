@@ -7,6 +7,10 @@ const withNextIntl = nextIntlPlugin('./i18n.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Cloudflare Pages compatibility
+  trailingSlash: false,
+  output: 'standalone',
+  
   async headers() {
     return [
       {

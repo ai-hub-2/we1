@@ -1,0 +1,9 @@
+{
+  "build": {
+    "command": "cd apps/we-dev-next && pnpm install && pnpm build",
+    "output_directory": "apps/we-dev-next/.next"
+  },
+  "environment": {
+    "NEXT_PUBLIC_APP_NAME": "we-dev"
+  }
+}

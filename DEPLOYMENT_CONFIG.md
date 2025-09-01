@@ -29,13 +29,19 @@ Add these secrets to your GitHub repository settings:
 - **Production Branch**: main
 - **Build Command**: `cd apps/we-dev-next && pnpm install && pnpm build`
 - **Build Output Directory**: `apps/we-dev-next/.next`
+- **Root Directory**: `/` (leave empty)
 
 ## Environment Variables
 - **NEXT_PUBLIC_APP_NAME**: we-dev
 
+## Important Notes
+- The `wrangler.toml` file only contains environment configuration
+- Build settings are configured in the Cloudflare Pages dashboard
+- Static files (`_headers`, `_redirects`) are in `apps/we-dev-next/public/`
+
 ## Next Steps
 1. Add the required secrets to GitHub repository settings
-2. Create Cloudflare Pages project
+2. Create Cloudflare Pages project with the correct build settings
 3. Push to main branch to trigger deployment
 4. Monitor deployment in GitHub Actions
 
@@ -76,3 +82,4 @@ Add these secrets to your GitHub repository settings:
    - Framework preset: Next.js
    - Build command: `cd apps/we-dev-next && pnpm install && pnpm build`
    - Build output directory: `apps/we-dev-next/.next`
+   - Root directory: `/` (leave empty)

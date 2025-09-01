@@ -1,7 +1,3 @@
-[build]
-command = "cd apps/we-dev-next && pnpm install && pnpm build"
-pages_build_output_dir = "apps/we-dev-next/.next"
-
 [env.production]
 name = "we-dev"
 
