@@ -1,36 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import acceptLanguage from "accept-language";
-import { locales, Language } from "./utils/lang";
-import createIntlMiddleware from 'next-intl/middleware';
 
-acceptLanguage.languages(locales)
-const intlMiddleware = createIntlMiddleware({
-  locales,
-  defaultLocale: Language.English,
-  localePrefix: "always",
-  localeDetection: true,
-  pathnames: {
-    '/': {
-      en: '/',
-      'zh-CN': '/'
-    },
-    '/user': {
-      en: '/user',
-      'zh-CN': '/user'
-    },
-    '/login': {
-      en: '/login',
-      'zh-CN': '/login'
-    },
-    '/register': {
-      en: '/register',
-      'zh-CN': '/register'
-    }
-  }
-});
-
-// CORS 配置
+// CORS configuration
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
@@ -39,15 +10,15 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Credentials": "true",
 } as const;
 
-
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-    // 处理 CORS 预检请求
-    if (request.method === "OPTIONS") {
-      return new NextResponse(null, { status: 200, headers: CORS_HEADERS });
-    }
+  // Handle CORS preflight requests
+  if (request.method === "OPTIONS") {
+    return new NextResponse(null, { status: 200, headers: CORS_HEADERS });
+  }
 
+  // Handle wedev_public routes
   if (pathname.startsWith("/wedev_public")) {
     const response = NextResponse.next();
     response.headers.set("Cross-Origin-Embedder-Policy", "unsafe-none");
@@ -55,7 +26,13 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
-  return NextResponse.next();
+  // Add CORS headers to all responses
+  const response = NextResponse.next();
+  Object.entries(CORS_HEADERS).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+
+  return response;
 }
 
 export const config = {
